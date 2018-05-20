@@ -4,7 +4,7 @@
 
 Munki needs to be patched to have support for "postware" (vs. "middlware") which allows for custom code to happen after a URL has been downloaded by `managedsoftwareupdate`. This is available in this PR:
 
-https://github.com/munki/munki/pull/XXX
+https://github.com/munki/munki/pull/851
 
 Why this method over, say, a Munki [preflight script](https://github.com/munki/munki/wiki/Preflight-And-Postflight-Scripts)? The main reason was to try and hook Munki in a way we could re-use Munki's middleware to fetch additional files (the signatures) where we need to be able to call Munki routines while its running (preflight/postflights are executed in another process). It's not clear that this couldn't simply use munki routine's as we do in the "postware" here, so I suppose its up for debate and certainly open to other methods.
 
